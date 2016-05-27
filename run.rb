@@ -1,16 +1,12 @@
-require_relative './config/environment.rb'
-require_relative './test.rb'
+
+require_relative './scraper.rb'
 require 'open-uri'
 
 #Scraper.indices_clear
 
-	html = Nokogiri::HTML(open("http://washingtondc.craigslist.org/search/roo/"))
-  	table_array = html.css('div.rows p.row')
+	scrape = Scraper.new("http://washingtondc.craigslist.org/search/roo/")
+  	scrape.increment
 
-	test = Scraper.new
-	test.increment(table_array)
-	
-	
 	
 	
 #	
