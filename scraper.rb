@@ -14,7 +14,6 @@ def initialize(city)
 	@more = "more"
 	@count = 1
 	@city = city
-	#"http://#{city_name}.craigslist.org/search/roo/"
 	@nested = Nokogiri::HTML(open("http://#{@city}.craigslist.org/roo/")).css('div.rows p.row')
 	@nested_new = nil
 end
@@ -45,7 +44,7 @@ end
 
 
 def increment
-	while @more == "more"
+	while @more == "more" && @one < 100
 		self.list
 		puts "\n\n\nType the corresponding number to see more details or \"more\" to see more listings."
 		@more = gets.chomp
@@ -54,7 +53,7 @@ def increment
 		end		
 		@one+=20
 	end		  
-
+    puts "\n\n\nCheck craigslist.com for more listings"
 end
 
 
