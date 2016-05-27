@@ -3,8 +3,27 @@ require_relative './scraper.rb'
 require 'open-uri'
 
 #Scraper.indices_clear
+	
+	puts "Welcome to the Craigslist Room Lising Scraper!\n\n"
+	puts "What city would you like to search for?\n"
+	puts "1. Washington D.C.\n2. New York City\n3. San Francisco / Bay Area\n"
+	puts "(type in the corresponding number)"
+	city = gets.chomp
+	
+	case city
+	when "1" || "1." then city_name = "washingtondc"
+	when "2" || "2." then city_name = "newyork"
+	when "3" || "3." then city_name = "sfbay"
+	when "4" || "4." then city_name = "chicago"
+	when "5" || "5." then city_name = "losangeles"
+	when "6" || "6." then city_name = "boston"
+	else 	
+		puts "invalid submission" 
+		city = gets.chomp
+	end
+	
 
-	scrape = Scraper.new("http://washingtondc.craigslist.org/search/roo/")
+	scrape = Scraper.new("http://#{city_name}.craigslist.org/search/roo/")
   	scrape.increment
 
 	
