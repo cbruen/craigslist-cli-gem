@@ -1,12 +1,14 @@
 
 require_relative './scraper.rb'
+require_relative './listing.rb'
+require_relative './listing_page.rb'
 require 'open-uri'
 
 #Scraper.indices_clear
 	
 	puts "Welcome to the Craigslist Room Lising Scraper!\n\n"
 	puts "What city would you like to search for?\n"
-	puts "1. Washington D.C.\n2. New York City\n3. San Francisco / Bay Area\n"
+	puts "1. Washington D.C.\n2. New York City\n3. San Francisco / Bay Area\n4. Chicago\n5. Los Angeles\n6. Boston"
 	puts "(type in the corresponding number)"
 	city = gets.chomp
 	
@@ -23,7 +25,7 @@ require 'open-uri'
 	end
 	
 
-	scrape = Scraper.new("http://#{city_name}.craigslist.org/search/roo/")
+	scrape = Scraper.new(city_name)
   	scrape.increment
 
 	
